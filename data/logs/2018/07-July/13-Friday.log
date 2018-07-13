@@ -1,0 +1,153 @@
+
+
+Starting up. (ID: bVk-c4ji) 14:07.47
+---------------------
+[21:00:00] bVk-c4ji ADMIN: Loading jobban_rank
+[21:00:00] bVk-c4ji ADMIN: jobban_keylist was empty
+[21:00:00] bVk-c4ji ADMIN: Loading Banlist
+[21:00:00] bVk-c4ji ADMIN: Banlist is empty.
+[21:00:00] bVk-c4ji ADMIN: Banlist missing base dir.
+[21:00:00] bVk-c4ji ASGEN: Found 45848 ore turfs.
+[21:00:00] bVk-c4ji ASGEN: Set 2430 turfs to random minerals.
+[21:00:00] bVk-c4ji ASGEN: Set 821 turfs to high-chance random minerals.
+[21:00:00] bVk-c4ji ASGEN: Applied 0 turfs.
+[21:00:00] bVk-c4ji ASGEN: Found 46156 ore turfs.
+[21:00:00] bVk-c4ji ASGEN: Set 2484 turfs to random minerals.
+[21:00:00] bVk-c4ji ASGEN: Set 767 turfs to high-chance random minerals.
+[21:00:00] bVk-c4ji ASGEN: Applied 0 turfs.
+[21:00:00] bVk-c4ji ASGEN: Found 45214 ore turfs.
+[21:00:00] bVk-c4ji ASGEN: Set 2428 turfs to random minerals.
+[21:00:00] bVk-c4ji ASGEN: Set 823 turfs to high-chance random minerals.
+[21:00:00] bVk-c4ji ASGEN: Applied 0 turfs.
+[21:00:00] bVk-c4ji DEBUG: Rebuilding Master Controller
+[21:00:00] bVk-c4ji ACCESS: Login: Ma44/(Ma44) from 127.0.0.1-1847007878 || BYOND v511
+[21:00:00] bVk-c4ji ADMIN: Ma44 has started the game.
+[21:00:00] bVk-c4ji DEBUG: Ma44 has not selected never for this role, so we are drafting them.
+[21:00:00] bVk-c4ji DEBUG: Ma44 has not selected never for this role, so we are drafting them.
+[21:00:00] bVk-c4ji DEBUG: Ma44 has not selected never for this role, so we are drafting them.
+[21:00:00] bVk-c4ji ACCESS: Logout: *no key*/(Ma44)
+[21:00:00] bVk-c4ji ACCESS: Login: Ma44/(Oliver Young) from 127.0.0.1-1847007878 || BYOND v511
+[21:00:00] bVk-c4ji DEBUG: Next event of severity Mundane in 13.534 minutes.
+[21:00:00] bVk-c4ji DEBUG: Next event of severity Moderate in 42.662 minutes.
+[21:00:00] bVk-c4ji DEBUG: Next event of severity Major in 88.0333 minutes.
+[21:00:01] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:00:01] bVk-c4ji SAY: crab/ : ...
+[21:00:01] bVk-c4ji EMOTE: Faithless/ : <B>Faithless</B> wails at Experiment 68a
+[21:00:06] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:00:10] bVk-c4ji SAY: crab/ : ...
+[21:00:10] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:00:11] bVk-c4ji EMOTE: mouse (137)/ : <B>The mouse (137)</B> scritches at something.
+[21:00:16] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted Internal Affairs Jacket at (0,0,0)
+[21:00:22] bVk-c4ji EMOTE: mouse (185)/ : <B>The mouse (185)</B> squeaks.
+[21:00:26] bVk-c4ji SAY: mouse (220)/ : SQUEEK!
+[21:00:33] bVk-c4ji SAY: mouse (109)/ : Squeek!
+[21:00:35] bVk-c4ji SAY: mouse (135)/ : Squeek!
+[21:00:38] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/rig_module/vision/nvg at (90,53,2) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=90;Y=53;Z=2'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:00:41] bVk-c4ji SAY: mouse (174)/ : Squeek!
+[21:00:51] bVk-c4ji EMOTE: mouse (104)/ : <B>The mouse (104)</B> runs in a circle.
+[21:00:57] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:01:00] bVk-c4ji SAY: crab/ : ...
+[21:01:01] bVk-c4ji EMOTE: mouse (167)/ : <B>The mouse (167)</B> squiks.
+[21:01:02] bVk-c4ji EMOTE: mouse (130)/ : <B>The mouse (130)</B> shakes.
+[21:01:12] bVk-c4ji SAY: mouse (203)/ : SQUEEK!
+[21:01:16] bVk-c4ji EMOTE: mouse (126)/ : <B>The mouse (126)</B> squiks.
+[21:01:47] bVk-c4ji EMOTE: mouse (176)/ : <B>The mouse (176)</B> shakes.
+[21:01:47] bVk-c4ji EMOTE: mouse (139)/ : <B>The mouse (139)</B> squeaks.
+[21:01:49] bVk-c4ji ADMIN: Ma44/(Oliver Young) dealt -345 amount of toxin damage to Oliver Young
+[21:01:50] bVk-c4ji EMOTE: mouse (147)/ : <B>The mouse (147)</B> squiks.
+[21:01:51] bVk-c4ji ADMIN: Ma44/(Oliver Young) dealt -345 amount of brute damage to Oliver Young
+[21:01:53] bVk-c4ji EMOTE: mouse (151)/ : <B>The mouse (151)</B> squiks.
+[21:01:59] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:02:08] bVk-c4ji EMOTE: mouse (141)/ : <B>The mouse (141)</B> shakes.
+[21:02:12] bVk-c4ji SAY: mouse (174)/ : Squeek?
+[21:02:19] bVk-c4ji SAY: mouse (119)/ : SQUEEK!
+[21:02:26] bVk-c4ji EMOTE: mouse (125)/ : <B>The mouse (125)</B> squiks.
+[21:02:26] bVk-c4ji EMOTE: mouse (122)/ : <B>The mouse (122)</B> squeaks.
+[21:02:30] bVk-c4ji EMOTE: mouse (153)/ : <B>The mouse (153)</B> squeeks.
+[21:02:44] bVk-c4ji SAY: mouse (120)/ : Squeek?
+[21:02:48] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's shock_stage from '10' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=81;Y=53;Z=2'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:02:59] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's stat from '1' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=81;Y=53;Z=2'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:03:15] bVk-c4ji SAY: mouse (186)/ : SQUEEK!
+[21:03:23] bVk-c4ji EMOTE: mouse (163)/ : <B>The mouse (163)</B> squeaks.
+[21:03:34] bVk-c4ji SAY: mouse (135)/ : SQUEEK!
+[21:03:47] bVk-c4ji EMOTE: mouse (129)/ : <B>The mouse (129)</B> squeaks.
+[21:03:47] bVk-c4ji EMOTE: mouse (118)/ : <B>The mouse (118)</B> squeaks.
+[21:04:06] bVk-c4ji EMOTE: mouse (162)/ : <B>The mouse (162)</B> squeaks.
+[21:04:07] bVk-c4ji EMOTE: mouse (147)/ : <B>The mouse (147)</B> scritches at something.
+[21:04:09] bVk-c4ji EMOTE: mouse (122)/ : <B>The mouse (122)</B> squiks.
+[21:04:15] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:04:19] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:04:34] bVk-c4ji ADMIN: Ma44/(Oliver Young) healed / Rrvived Ma44/(Oliver Young) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=81;Y=53;Z=2'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:04:36] bVk-c4ji EMOTE: mouse (159)/ : <B>The mouse (159)</B> runs in a circle.
+[21:04:39] bVk-c4ji SAY: crab/ : ...
+[21:04:39] bVk-c4ji EMOTE: mouse (130)/ : <B>The mouse (130)</B> shakes.
+[21:04:45] bVk-c4ji EMOTE: mouse (166)/ : <B>The mouse (166)</B> shakes.
+[21:05:07] bVk-c4ji EMOTE: mouse (164)/ : <B>The mouse (164)</B> runs in a circle.
+[21:05:25] bVk-c4ji SAY: mouse (197)/ : Squeek!
+[21:05:40] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:05:40] bVk-c4ji SAY: mouse (196)/ : SQUEEK!
+[21:05:46] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/rig_module/vision/nvg at (62,81,3) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=62;Y=81;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:05:59] bVk-c4ji EMOTE: mouse (132)/ : <B>The mouse (132)</B> squeeks.
+[21:06:08] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:06:10] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:06:15] bVk-c4ji EMOTE: mouse (180)/ : <B>The mouse (180)</B> shakes.
+[21:06:18] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/clothing/glasses/night at (60,81,3) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=60;Y=81;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:06:23] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted the reinforced window at (61,82,3)
+[21:06:24] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted the grille at (61,82,3)
+[21:06:26] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted the reinforced window at (61,82,3)
+[21:06:29] bVk-c4ji EMOTE: mouse (219)/ : <B>The mouse (219)</B> shakes.
+[21:06:31] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted the pine tree at (62,85,3)
+[21:06:52] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/clothing/shoes/magboots at (63,119,3) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=119;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:06:53] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:06:58] bVk-c4ji EMOTE: mouse (175)/ : <B>The mouse (175)</B> squiks.
+[21:06:58] bVk-c4ji EMOTE: mouse (168)/ : <B>The mouse (168)</B> squeaks.
+[21:07:04] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:07:08] bVk-c4ji EMOTE: mouse (124)/ : <B>The mouse (124)</B> squiks.
+[21:07:13] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:07:48] bVk-c4ji SAY: Experiment 68a/ : ...
+[21:07:50] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/clothing/shoes/magboots at (63,87,3) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:07:50] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:08:02] bVk-c4ji EMOTE: mouse (146)/ : <B>The mouse (146)</B> squeaks.
+[21:08:02] bVk-c4ji ATTACK: Ma44/(Oliver Young) disarmed Ma44/(Oliver Young) (INTENT: DISARM) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:08:14] bVk-c4ji ADMIN: Ma44/(Oliver Young) has paralyzed Ma44/(Oliver Young). (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:08:17] bVk-c4ji EMOTE: mouse (132)/ : <B>The mouse (132)</B> shakes.
+[21:08:17] bVk-c4ji ADMIN: Ma44/(Oliver Young) has unparalyzed Ma44/(Oliver Young). (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:08:25] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's stunned from '1' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=63;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:08:28] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:08:30] bVk-c4ji SAY: mouse (125)/ : SQUEEK!
+[21:08:36] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:08:40] bVk-c4ji SAY: Oliver Young/Ma44 : at
+[21:08:49] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's lying from '1' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=64;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:08:50] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's lying_prev from '1' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=64;Y=87;Z=3'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:09:08] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:09:28] bVk-c4ji EMOTE: mouse (192)/ : <B>The mouse (192)</B> squeeks.
+[21:09:33] bVk-c4ji SAY: crab/ : ...
+[21:09:37] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/random/hardsuit at (83,87,1) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=83;Y=87;Z=1'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:09:38] bVk-c4ji EMOTE: mouse (211)/ : <B>The mouse (211)</B> scritches at something.
+[21:09:47] bVk-c4ji EMOTE: mouse (219)/ : <B>The mouse (219)</B> shakes.
+[21:09:52] bVk-c4ji SAY: mouse (171)/ : Squeek!
+[21:09:58] bVk-c4ji EMOTE: mouse (156)/ : <B>The mouse (156)</B> squeeks.
+[21:10:12] bVk-c4ji SAY: crab/ : ...
+[21:10:15] bVk-c4ji ADMIN: Ma44/(Oliver Young) spawned /obj/item/device/flashlight at (87,94,1) (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=87;Y=94;Z=1'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:10:25] bVk-c4ji ADMIN: Ma44/(Oliver Young) modified Oliver Young's stunned from '4' to '0' (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=87;Y=94;Z=1'>LOC</a>) (<a HREF='?_src_=holder;adminplayerobservefollow=[0x300025f]'>MOB</a>)
+[21:10:32] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clicks.
+[21:11:18] bVk-c4ji EMOTE: mouse (140)/ : <B>The mouse (140)</B> scritches at something.
+[21:11:23] bVk-c4ji EMOTE: mouse (204)/ : <B>The mouse (204)</B> squeaks.
+[21:11:47] bVk-c4ji EMOTE: mouse (151)/ : <B>The mouse (151)</B> runs in a circle.
+[21:11:52] bVk-c4ji EMOTE: mouse (166)/ : <B>The mouse (166)</B> scritches at something.
+[21:11:56] bVk-c4ji SAY: mouse (192)/ : SQUEEK!
+[21:12:18] bVk-c4ji SAY: crab/ : ...
+[21:12:20] bVk-c4ji ADMIN: Ma44/(Oliver Young) deleted the pine tree at (108,71,1)
+[21:12:22] bVk-c4ji SAY: mouse (169)/ : Squeek?
+[21:12:59] bVk-c4ji EMOTE: mouse (143)/ : <B>The mouse (143)</B> runs in a circle.
+[21:13:02] bVk-c4ji EMOTE: mouse (184)/ : <B>The mouse (184)</B> runs in a circle.
+[21:13:34] bVk-c4ji DEBUG: Next event of severity Mundane in 17.824 minutes.
+[21:13:34] bVk-c4ji DEBUG: Starting event 'Trivial News' of severity Mundane.
+[21:13:41] bVk-c4ji EMOTE: mouse (153)/ : <B>The mouse (153)</B> shakes.
+[21:13:56] bVk-c4ji DEBUG: Event 'Trivial News' has completed at 21:16.
+[21:13:57] bVk-c4ji SAY: mouse (146)/ : Squeek!
+[21:14:06] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:14:06] bVk-c4ji SAY: mouse (174)/ : Squeek!
+[21:14:14] bVk-c4ji EMOTE: crab/ : <B>The crab</B> clacks.
+[21:14:26] bVk-c4ji EMOTE: mouse (164)/ : <B>The mouse (164)</B> squiks.
+[21:14:28] bVk-c4ji ACCESS: Logout: Ma44/(Oliver Young)
