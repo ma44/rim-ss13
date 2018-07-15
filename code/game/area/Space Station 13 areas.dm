@@ -63,13 +63,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/space
 	name = "\improper Space"
 	icon_state = "space"
-	requires_power = 1
+	requires_power = 0
 	always_unpowered = 1
 	dynamic_lighting = 1
-	power_light = 0
-	power_equip = 0
-	power_environ = 0
-	has_gravity = 0
+	power_light = 1
+	power_equip = 1
+	power_environ = 1
+	has_gravity = 1
 	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
 
 /area/space/update_icon()

@@ -6,6 +6,23 @@
 	pixel_x = -16
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
+	var/beingcut = 0
+
+/obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
+	if(W.sharp)
+		if(beingcut == 0)
+			beingcut = 1 //Prevents message spam
+			user.visible_message("[user] begins cutting the [src] with the [W].", "You begin to cut the [src] with the [W].")
+			if(do_after(user, 30, src))
+				var/locationthing = get_turf(src)
+				var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
+				wood.amount = 3
+				user.visible_message("[user] cuts down the [src].", "You cut down the [src].")
+				del(src)
+			else
+				beingcut = 0
+	else
+		return ..()
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
