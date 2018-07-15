@@ -115,3 +115,8 @@
 /obj/item/stack/rods/add()
 	. = ..()
 	update_icon()
+
+/obj/item/stack/rods/stick
+	name = "wodden stick"
+	desc = "A wooden stick."
+	icon_state = "sticks"

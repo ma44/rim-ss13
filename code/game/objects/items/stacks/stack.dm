@@ -372,3 +372,8 @@
 	New(title, recipes)
 		src.title = title
 		src.recipes = recipes
+
+/obj/item/stack/rope
+	name = "Rope"
+	desc = "Some rope neatly put together, useful for making primitive tools."
+	icon_state = "rope"

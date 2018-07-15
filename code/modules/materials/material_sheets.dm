@@ -254,6 +254,15 @@
 /obj/item/stack/material/wood/fifty
 	amount = 50
 
+/obj/item/stack/material/wood/attackby(obj/item/weapon/W, mob/user)
+	if(W.sharp)
+		to_chat(user, "You start to cut the wooden plank.")
+		if(do_after(user, 20, src))
+			var/locationthing = get_turf(src)
+			var/obj/item/stack/rods/stick/stick = new /obj/item/stack/rods/stick(locationthing)
+			stick.amount = 2
+			to_chat(user, "You finish cutting the wooden plank.")
+
 /obj/item/stack/material/cloth
 	name = "cloth"
 	icon_state = "sheet-cloth"

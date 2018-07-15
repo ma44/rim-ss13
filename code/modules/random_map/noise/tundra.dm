@@ -62,7 +62,9 @@
 				//var/mob_type = pick(list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse))
 				//new mob_type(T)
 		if(7)
-			if(prob(60))
+			if(prob(10))
+				new /obj/structure/sink/puddle
+			else if(prob(60))
 				new /obj/structure/flora/bush(T)
 			else if(prob(30))
 				new /obj/structure/flora/tree/pine(T)
