@@ -5,6 +5,11 @@
 
 ///For descriptions, use the span classes bold info, info, none, warning and boldwarning in order from great to horrible.
 
+/datum/happiness_event/warmth/campfire
+	description = "<span class='binfo'>It feels nice standing by a camp fire in this freezing terrain.</span>\n"
+	happiness = 2
+	timeout = 180
+
 //thirst
 /datum/happiness_event/thirst/filled
 	description = "<span class='binfo'>I've had enough to drink for a while!</span>\n"

@@ -37,3 +37,10 @@
 	result = list(/obj/structure/barricade = 1)
 	time = 60
 	base_chance = 100
+
+/datum/crafting_recipe/firepit
+	name = "Firepit"
+	parts = list(/obj/item/stack/material/wood = 3)
+	result = list(/obj/structure/firepit = 1)
+	time = 30
+	base_chance = 100

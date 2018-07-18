@@ -76,6 +76,6 @@
 			else if(prob(30))
 				new /obj/structure/flora/tree/dead(T)
 			else
-				new /obj/structure/flora/bush(T)
+				new /obj/item/rock(T)
 		if(9)
 			new /obj/structure/flora/tree/pine(T)

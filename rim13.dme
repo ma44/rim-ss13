@@ -2530,5 +2530,6 @@
 #include "maps\~mapsystem\maps_unit_testing.dm"
 #include "maps\~unit_tests\unit_testing.dm"
 #include "rimss13\fireplace.dm"
+#include "rimss13\items and stuff.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE

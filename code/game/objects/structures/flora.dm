@@ -6,21 +6,36 @@
 	pixel_x = -16
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
-	var/beingcut = 0
+	var/life = 5 //How many more strikes to hit it
 
 /obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
-		if(beingcut == 0)
-			beingcut = 1 //Prevents message spam
-			user.visible_message("[user] begins cutting the [src] with the [W].", "You begin to cut the [src] with the [W].")
-			if(do_after(user, 30, src))
-				var/locationthing = get_turf(src)
-				var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
-				wood.amount = 3
-				user.visible_message("[user] cuts down the [src].", "You cut down the [src].")
-				del(src)
-			else
-				beingcut = 0
+		if(life > 0)
+			user.visible_message("[user] hits the [src] with the [W]!", "You hit the [src] with the [W].")
+			life -= 1
+			var/number = rand(1, 7)
+			switch(number) //Damm the efficiency in this
+				if(1)
+					playsound(src, 'sound/effects/wood_chop_01.ogg',50, 1)
+				if(2)
+					playsound(src, 'sound/effects/wood_chop_02.ogg',50, 1)
+				if(3)
+					playsound(src, 'sound/effects/wood_chop_03.ogg',50, 1)
+				if(4)
+					playsound(src, 'sound/effects/wood_chop_04.ogg',50, 1)
+				if(5)
+					playsound(src, 'sound/effects/wood_chop1.ogg',50, 1)
+				if(6)
+					playsound(src, 'sound/effects/wood_chop2.ogg',50, 1)
+				if(7)
+					playsound(src, 'sound/effects/wood_chop3.ogg',50, 1)
+		else
+			user.visible_message("[user] cuts the [src] down!", "You cut down the [src], making the thing suddenly collaspe into some wooden planks.")
+			var/locationthing = get_turf(src)
+			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
+			wood.amount = 3
+			del(src)
+
 	else
 		return ..()
 
@@ -79,6 +94,11 @@
 	..()
 	icon_state = "snowgrassall[rand(1, 3)]"
 
+/obj/structure/flora/grass/attack_hand(var/mob/user)
+	var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
+	user.put_in_active_hand(g)
+	to_chat(user, "You rip some grass out of the ground.")
+	del(src)
 
 //bushes
 /obj/structure/flora/bush
