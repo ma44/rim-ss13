@@ -8,6 +8,8 @@
 /obj/item/rock
 	name = "rock"
 	desc = "A singular rock, despite it being a rock, it is in fact extremely useful for some things."
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "ore2"
 
 /obj/item/rock/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/rock))
