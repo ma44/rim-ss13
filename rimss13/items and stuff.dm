@@ -26,11 +26,14 @@
 			if(firepit)
 				if(firepit.fuel > 0)
 					to_chat(user, "You make a spark from the two rocks, and successfully light up the firepit.")
+					playsound(src, 'sound/items/match.ogg', 50, 1)
 					firepit.lightitup()
 				else
 					to_chat(user, "You make a spark from the two rocks near the firepit, sadly it didn't have enough fuel.")
+					playsound(src, 'sound/items/match.ogg', 50, 1)
 			else
 				to_chat(user, "You make a spark from the two rocks, but nothing was around to be lit up from the sparks.")
+				playsound(src, 'sound/items/match.ogg', 50, 1)
 		else
 			to_chat(user, "You strike the two stones together, but nothing happens.")
 

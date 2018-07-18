@@ -29,7 +29,7 @@
 					playsound(src, 'sound/effects/wood_chop2.ogg',50, 1)
 				if(7)
 					playsound(src, 'sound/effects/wood_chop3.ogg',50, 1)
-		else
+		if(life < 0)
 			user.visible_message("[user] cuts the [src] down!", "You cut down the [src], making the thing suddenly collaspe into some wooden planks.")
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
