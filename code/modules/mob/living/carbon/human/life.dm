@@ -82,6 +82,18 @@
 		if(!client && !mind)
 			species.handle_npc(src)
 
+	if((prob(shock_stage)) && !(health < -100)) //You can scream from pain while not in really horrible condition
+		if(prob(25))
+			var/painsound
+			if(src.gender == MALE)
+				painsound = "sound/voice/Screams_Male_[rand(1,3)].ogg"
+			if(src.gender == FEMALE)
+				painsound = "sound/voice/Screams_Male_[rand(1,3)].ogg"
+			playsound(src, painsound, 50, 0, 1)
+
+	if(prob(getOxyLoss()))
+		if(prob(25))
+			src.gasp_sound()
 
 	if(!handle_some_updates())
 		return											//We go ahead and process them 5 times for HUD images and other stuff though.
@@ -725,7 +737,7 @@
 			if (chem_effects[CE_PAINKILLER] > 100)
 				healths.overlays.Cut()
 				healths.icon_state = "health_numb"
-			
+
 			else if(using_alt_hud)//If we're using Lunahud we want the lunahud health face.
 				var/mhealth = (getBruteLoss() + getFireLoss())
 				switch(mhealth)

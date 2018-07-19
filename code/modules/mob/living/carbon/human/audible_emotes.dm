@@ -15,7 +15,7 @@
 			//	screamsound = "sound/voice/child_pain[rand(1,2)].ogg"
 
 			else if(src.gender == MALE)
-				screamsound = "sound/voice/man_pain[rand(1,3)].ogg"
+				screamsound = "sound/voice/man_pain[rand(1,2)].ogg"
 
 			else
 				screamsound = "sound/voice/woman_agony[rand(1,3)].ogg"
