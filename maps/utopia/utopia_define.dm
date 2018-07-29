@@ -42,8 +42,4 @@
 
 /datum/map/utopia/perform_map_generation()
 	new /datum/random_map/noise/tundra/replace_space(null,1,1,1,255, 255)
-	new /datum/random_map/noise/tundra/replace_space(null,1,1,2,255, 255)
-	new /datum/random_map/noise/tundra/replace_space(null,1,1,3,255, 255)
-	new /datum/random_map/noise/tundra/replace_space(null,1,1,4,255, 255)
-	new /datum/random_map/noise/tundra/replace_space(null,1,1,5,255, 255)
 	return 1

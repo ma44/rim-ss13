@@ -9,9 +9,9 @@
 
 /datum/random_map/noise/tundra/New()
 	..()
-	for(var/obj/structure/flora/tree/stuff in world)
-		if(istype(stuff, /obj/structure/flora/tree))
-			stuff.set_light(100)
+	for(var/turf/simulated/floor/snow/stuff in world)
+		if(istype(stuff, /turf/simulated/floor/snow))
+			stuff.set_light(1)
 
 /datum/random_map/noise/tundra/get_map_char(var/value)
 	var/val = min(9,max(0,round((value/cell_range)*10)))

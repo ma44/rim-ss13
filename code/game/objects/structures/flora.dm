@@ -10,7 +10,7 @@
 
 /obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
-		if(life > 0)
+		if((life > 0) && do_after(user, 10, src))
 			user.visible_message("[user] hits the [src] with the [W]!", "You hit the [src] with the [W].")
 			life -= 1
 			var/number = rand(1, 7)
@@ -29,7 +29,7 @@
 					playsound(src, 'sound/effects/wood_chop2.ogg',50, 1)
 				if(7)
 					playsound(src, 'sound/effects/wood_chop3.ogg',50, 1)
-		if(life < 0)
+		if(life <= 0)
 			user.visible_message("[user] cuts the [src] down!", "You cut down the [src], making the thing suddenly collaspe into some wooden planks.")
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)

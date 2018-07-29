@@ -1,8 +1,9 @@
 /obj/item/stack/grass
-	name = "bundled brass"
-	singular_name = "piece of grass"
-	desc = "Some grass bundled up neatly. Useful for making primitive tools and tightening things together."
-	icon_state = "grassthing"
+	name = "grass rope"
+	singular_name = "piece of rope grass"
+	desc = "Some rope made of grass bundled up neatly. Useful for making primitive tools and tightening things together."
+	icon_state = "rope"
+	icon = 'rimss13/grass.dmi'
 	max_amount = 10
 
 /obj/item/rock
