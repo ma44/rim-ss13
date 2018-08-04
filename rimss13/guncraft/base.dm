@@ -55,11 +55,22 @@
 	allowed_magazines = /obj/item/ammo_magazine/mc9mm
 	var/magtype = 3
 	icon_state = "handle_semi1"
+	var/gunfiremode = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null)
+		)
 
 /obj/item/weapon/gun/projectile/attach/handle/Initialize()
 	..()
 	name = "[calibertype] gun handle"
 	desc = "Determines the type of caliber the gun shoots. This one shoots a [calibertype]."
+
+/obj/item/weapon/gun/projectile/attach/handle/burst
+	name = "burst handle"
+	desc = "Makes a gun fire a three round burst."
+	gunfiremode = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    one_hand_penalty=1, burst_accuracy=list(0,-1,-1))
+		)
 
 /obj/item/weapon/gun/projectile/attach/sight
 	name = "basic gun sight"
@@ -106,6 +117,8 @@
 		if(handle1.magtype)
 			if(handle1.magtype == 3) //If it's a magazine
 				src.load_method = MAGAZINE
+		if(handle1.gunfiremode)
+			firemodes = handle1.gunfiremode
 	var/image/I4 = image(icon = 'rimss13/guncraft/ausops_new.dmi', icon_state = src.icon_state)
 	I4.color = src.color
 	add_overlay(I4)
