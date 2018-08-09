@@ -422,6 +422,19 @@
 	icon_state = "puddle"
 
 /obj/structure/sink/puddle/attackby(obj/item/O as obj, mob/user as mob)
-	icon_state = "puddle-splash"
-	..()
-	icon_state = "puddle"
+	if(istype(O, /obj/item/scrapmetal))
+		var/obj/item/scrapmetal/metal = O
+		metal.heat = 0
+		playsound(src, 'rimss13/fancymelee/sizzle.ogg', 50, 1)
+		metal.update_icon()
+		if(metal.progress >= 10)
+			var/obj/item/weapon/material/sword/fancything = metal.thingtomake
+			var/obj/item/weapon/material/sword/thing5 = new fancything
+			thing5.materialsheet = 5 //Damm unused variables
+			metal.thingtomake = null
+			qdel(metal)
+			user.put_in_hands(thing5)
+	else
+		icon_state = "puddle-splash"
+		..()
+		icon_state = "puddle"

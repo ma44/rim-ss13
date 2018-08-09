@@ -33,6 +33,7 @@ var/list/mining_floors = list()
 	var/obj/item/weapon/last_find
 	var/datum/artifact_find/artifact_find
 	var/image/ore_overlay
+	var/deposithealth = 1 //How many times it could be mined before disappearing
 
 	has_resources = 1
 
@@ -230,9 +231,9 @@ var/list/mining_floors = list()
 					B = new(src)
 
 				if(B)
-					GetDrilled(0)
+					GetDrilled(0, user)
 				else
-					GetDrilled(1)
+					GetDrilled(1, user)
 				return
 
 			excavation_level += P.excavation_amount
@@ -285,49 +286,60 @@ var/list/mining_floors = list()
 	overlays -= ore_overlay
 	ore_overlay = null
 
-/turf/simulated/mineral/proc/DropMineral()
+/turf/simulated/mineral/proc/DropMineral(mob/user)
 	if(!mineral)
 		return
 
 	clear_ore_effects()
-	var/obj/item/weapon/ore/O = new mineral.ore (src)
-	if(geologic_data && istype(O))
-		geologic_data.UpdateNearbyArtifactInfo(src)
-		O.geologic_data = geologic_data
-	return O
+	if(user)
+		var/obj/item/weapon/ore/A = new mineral.ore (user)
+		return A
+	else
+		var/obj/item/weapon/ore/O
+		if(geologic_data && istype(O))
+			geologic_data.UpdateNearbyArtifactInfo(src)
+			O.geologic_data = geologic_data
+		return O
 
-/turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
+/turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0, mob/user)
 	//var/destroyed = 0 //used for breaking strange rocks
-	if (mineral && mineral.result_amount)
+	//if (mineral && mineral.result_amount)
 
 		//if the turf has already been excavated, some of it's ore has been removed
-		for (var/i = 1 to mineral.result_amount - mined_ore)
-			DropMineral()
+		//for (var/i = 1 to mineral.result_amount - mined_ore)
+		//	DropMineral()
+	deposithealth -= 1
+	if(deposithealth > 0)
+		DropMineral(user)
+	if(deposithealth <= 0)
+		if (mineral && mineral.result_amount)
+			//if the turf has already been excavated, some of it's ore has been removed
+			for (var/i = 1 to mineral.result_amount - mined_ore)
+				DropMineral()
+		//destroyed artifacts have weird, unpleasant effects
+		//make sure to destroy them before changing the turf though
+		if(artifact_find && artifact_fail)
+			var/pain = 0
+			if(prob(50))
+				pain = 1
+			for(var/mob/living/M in range(src, 200))
+				to_chat(M, "<font color='red'><b>[pick("A high pitched [pick("keening","wailing","whistle")]","A rumbling noise like [pick("thunder","heavy machinery")]")] somehow penetrates your mind before fading away!</b></font>")
+				if(pain)
+					flick("pain",M.pain)
+					if(prob(50))
+						M.adjustBruteLoss(5)
+				else
+					M.flash_eyes()
+					if(prob(50))
+						M.Stun(5)
+			radiation_repository.flat_radiate(src, 25, 200)
+		//Add some rubble,  you did just clear out a big chunk of rock.
 
-	//destroyed artifacts have weird, unpleasant effects
-	//make sure to destroy them before changing the turf though
-	if(artifact_find && artifact_fail)
-		var/pain = 0
-		if(prob(50))
-			pain = 1
-		for(var/mob/living/M in range(src, 200))
-			to_chat(M, "<font color='red'><b>[pick("A high pitched [pick("keening","wailing","whistle")]","A rumbling noise like [pick("thunder","heavy machinery")]")] somehow penetrates your mind before fading away!</b></font>")
-			if(pain)
-				flick("pain",M.pain)
-				if(prob(50))
-					M.adjustBruteLoss(5)
-			else
-				M.flash_eyes()
-				if(prob(50))
-					M.Stun(5)
-		radiation_repository.flat_radiate(src, 25, 200)
-	//Add some rubble,  you did just clear out a big chunk of rock.
+		var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
 
-	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
-
-	if(istype(N))
-		N.overlay_detail = "asteroid[rand(0,9)]"
-		N.updateMineralOverlays(1)
+		if(istype(N))
+			N.overlay_detail = "asteroid[rand(0,9)]"
+			N.updateMineralOverlays(1)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 
@@ -407,6 +419,10 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/random/high_chance
 	mineralChance = 100 //25
 	mineralSpawnChanceList = list("Uranium" = 10, "Platinum" = 10, "Iron" = 20, "Carbon" = 20, "Diamond" = 2, "Gold" = 10, "Silver" = 10, "Phoron" = 20)
+
+/turf/simulated/mineral/random/deposit //A kind of mineral wall that can be mined several times in a row
+	mineralChance = 10000
+	mineralSpawnChanceList = list("Iron" = 100) //TODO: copper
 
 
 /**********************Asteroid**************************/

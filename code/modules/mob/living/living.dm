@@ -640,6 +640,10 @@ default behaviour is:
 		else
 			adjustStaminaLoss(-1)
 
+	if(staminaloss && combat_mode)
+		if(staminaloss > 25)
+			adjustStaminaLoss(-1) //Slowly heal stamina loss in combat mode
+
 	if(staminaloss >= STAMINA_EXHAUST && !stat)//Oh shit we've lost too much stamina and now we're tired!
 		Exhaust()
 		return

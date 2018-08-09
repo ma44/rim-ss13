@@ -18,6 +18,12 @@
 		A.amount -= 1
 		to_chat(user, "You place some grass into the firepit.")
 		fuel += 1
+	if(istype(I, /obj/item/scrapmetal))
+		var/obj/item/scrapmetal/B = I
+		B.heat += 2
+		to_chat(user, "You heat up the scrap metal.")
+		playsound('sound/items/lighter1.ogg', 50, 1)
+		B.update_icon()
 
 /obj/structure/firepit/attack_hand(var/mob/user)
 	if(!burning)
