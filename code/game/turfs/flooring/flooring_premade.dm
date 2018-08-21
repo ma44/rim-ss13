@@ -281,7 +281,7 @@
 /turf/simulated/floor/snow/New()
 	icon_state = pick("snow[rand(1,12)]","snow0")
 	..()
-
+/*
 /turf/simulated/floor/snow/Entered(atom/movable/A as mob|obj)
 	var/number = rand(1, 4)
 	switch(number)
@@ -293,7 +293,7 @@
 			playsound(src, 'sound/effects/snowstep3.ogg',50, 1)
 		if(4)
 			playsound(src, 'sound/effects/snowstep4.ogg',50, 1)
-
+*/
 /turf/simulated/floor/dirty
 	name = "dirt"
 	icon = 'icons/turf/dirt.dmi'

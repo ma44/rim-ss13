@@ -25,10 +25,12 @@
 
 //Going here till I find a better place for it.
 /mob/living/proc/handle_combat_mode()//Makes it so that you can't regain stamina in combat mode.
+	return
+	/*
 	if(combat_mode)
 		if(staminaloss < 25)
 			adjustStaminaLoss(1)
-
+	*/ //Comment this out for now
 /mob/living/proc/attempt_dodge()//Handle parry is an object proc and it's, its own thing.
 	if(combat_mode && (defense_intent == I_DODGE) && !lying)//Todo, make use of the check_shield_arc proc to make sure you can't dodge from behind.
 		if(staminaloss < 50 && statscheck(dex, 20))//You gotta be the master of dexterity to dodge every time.

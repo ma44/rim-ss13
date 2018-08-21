@@ -47,6 +47,7 @@
 	if (transforming)
 		return
 
+	adjustStaminaLoss(-1)
 	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
 
 	//TODO: seperate this out
@@ -82,7 +83,7 @@
 		if(!client && !mind)
 			species.handle_npc(src)
 
-	if((prob(shock_stage)) && !(health < -100)) //You can scream from pain while not in really horrible condition
+	if((prob(shock_stage)) && (health > 0)) //You can scream from pain while not in really horrible condition
 		if(prob(25))
 			var/painsound
 			if(src.gender == MALE)
@@ -91,8 +92,8 @@
 				painsound = "sound/voice/Screams_Male_[rand(1,3)].ogg"
 			playsound(src, painsound, 50, 0, 1)
 
-	if(prob(getOxyLoss()))
-		if(prob(25))
+	if((prob(getOxyLoss())) && (health > 0))
+		if(prob(50))
 			src.gasp_sound()
 
 	if(!handle_some_updates())

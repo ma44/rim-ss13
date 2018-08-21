@@ -95,10 +95,11 @@
 	icon_state = "snowgrassall[rand(1, 3)]"
 
 /obj/structure/flora/grass/attack_hand(var/mob/user)
-	var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
-	user.put_in_active_hand(g)
-	to_chat(user, "You rip some grass out of the ground.")
-	del(src)
+	//var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
+	//user.put_in_active_hand(g)
+	if(do_after(user, 20, src))
+		to_chat(user, "You rip some grass out of the ground.")
+		del(src)
 
 //bushes
 /obj/structure/flora/bush

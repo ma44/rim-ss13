@@ -110,7 +110,6 @@
 	if(!reagents || !reagents.total_volume)
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return 1
-
 	if(target == user)
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user

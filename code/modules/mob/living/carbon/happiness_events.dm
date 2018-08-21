@@ -8,7 +8,7 @@
 /datum/happiness_event/warmth/campfire
 	description = "<span class='binfo'>It feels nice standing by a camp fire in this freezing terrain.</span>\n"
 	happiness = 2
-	timeout = 180
+	timeout = 1800
 
 //thirst
 /datum/happiness_event/thirst/filled
@@ -50,6 +50,10 @@
 	description = "<span class='danger'>I'm starving!</span>\n"
 	happiness = -12
 
+/datum/happiness_event/table
+	description = "<span class='info'>I wish I ate my food with a table nearby.</span>\n"
+	happiness = -3
+	timeout = 600
 
 //Hygiene
 /datum/happiness_event/hygiene/clean

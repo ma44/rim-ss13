@@ -155,6 +155,10 @@ meteor_act
 		if(!shield) continue
 		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
 		if(.) return
+	for(var/obj/item/weapon/material/sword/sord in list(l_hand, r_hand))
+		if(!sord) continue
+		. = sord.default_sword_parry(src, damage, damage_source, attacker, def_zone, attack_text)
+		if(.) return 1
 	return 0
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)

@@ -4,6 +4,7 @@
 #define FOOTSTEP_WOOD 		"wood"
 #define FOOTSTEP_ASTEROID 	"asteroid"
 #define FOOSTEP_DIRT		"dirt"
+#define FOOTSTEP_SNOW "snow"
 
 /turf/simulated/floor/var/global/list/footstep_sounds = list(
 	FOOTSTEP_WOOD = list(
@@ -39,7 +40,12 @@
 	FOOSTEP_DIRT = list(
 		'sound/effects/footstep/dirt1.ogg',
 		'sound/effects/footstep/dirt2.ogg',
-		'sound/effects/footstep/dirt3.ogg')
+		'sound/effects/footstep/dirt3.ogg'),
+	FOOTSTEP_SNOW = list(
+		'sound/effects/snowstep1.ogg',
+		'sound/effects/snowstep2.ogg',
+		'sound/effects/snowstep3.ogg',
+		'sound/effects/snowstep4.ogg')
 
 	)
 
@@ -49,7 +55,8 @@
 /decl/flooring/linoleum/footstep_type = FOOTSTEP_TILES
 /decl/flooring/wood/footstep_type = FOOTSTEP_WOOD
 /decl/flooring/reinforced/footstep_type = FOOTSTEP_PLATING
-
+/decl/flooring/reinforced/footstep_type = FOOTSTEP_PLATING
+/decl/flooring/snow/footstep_type = FOOTSTEP_SNOW
 /turf/simulated/floor/proc/get_footstep_sound()
 	if(is_plating())
 		return safepick(footstep_sounds[FOOTSTEP_PLATING])
