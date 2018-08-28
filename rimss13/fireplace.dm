@@ -50,7 +50,7 @@
 /obj/structure/firepit/Process()
 	fuel -= 0.01
 	playsound(src, 'sound/effects/fire_loopshort.ogg',50, 1)
-	for(var/mob/living/carbon/C in view(1))
+	for(var/mob/living/carbon/C in view(src, 1))
 		if(istype(C, /mob/living/carbon))
 			if(C.happiness == 0)
 				to_chat(C, "That firepit sure feels nice.")

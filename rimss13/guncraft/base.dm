@@ -83,6 +83,17 @@
 	icon = 'rimss13/guncraft/main.dmi'
 	icon_state = "attach_handle"
 
+/obj/item/weapon/gun/projectile/craft/premade
+	name = "premade gun frame pistol"
+	desc = "A gun that is premade to be like a pistol."
+
+/obj/item/weapon/gun/projectile/craft/premade/Initialize()
+	barrel = /obj/item/weapon/gun/projectile/attach/barrel
+	handle = /obj/item/weapon/gun/projectile/attach/handle
+	base = /obj/item/weapon/gun/projectile/attach/base
+	..()
+	update_icon()
+
 /obj/item/weapon/gun/projectile/craft
 	name = "gun frame"
 	desc = "A gun frame, shoots and works like a gun once constructed."

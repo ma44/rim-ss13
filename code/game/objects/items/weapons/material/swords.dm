@@ -86,7 +86,7 @@
 
 /obj/item/weapon/material/sword/rapier
 	name = "Rapier"
-	desc = "A weapon that is perfect for dueling, can only thrust and does extremely bad if hit multiple times in a row."
+	desc = "A weapon that is perfect for dueling, can only thrust and is EXTREMELY bad at parrying multiple times in a short time."
 	icon_state = "katana" //No questioning pls
 	item_state = "katana"
 	atk_mode = STAB
@@ -138,6 +138,16 @@
 			attack_verb = list("slashed", "diced")
 			hitsound = "slash_sound"
 			return
+
+/obj/item/weapon/material/sword/spear
+	name = "Spear"
+	desc = "A long weapon that is extremely good for attacking people without shields in crowded places and throwing to disable. Just don't try to parry with it."
+	parryability = 10 //Hah no
+	health = 25 //Also pretty weak
+
+/obj/item/weapon/material/sword/spear/attack_self(mob/user)
+	//..()
+	switch_intent(user,STAB) //Stabbin only
 
 /obj/item/weapon/material/sword/replica
 	edge = 0

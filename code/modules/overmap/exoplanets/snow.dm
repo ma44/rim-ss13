@@ -24,7 +24,7 @@
 	land_type = /turf/simulated/floor/exoplanet/snow
 	water_type = /turf/simulated/floor/exoplanet/ice
 	planetary_area = /area/exoplanet/snow
-	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
+	//fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
 	plantcolors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
 
 /area/exoplanet/snow
@@ -52,3 +52,7 @@
 /turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, temperature, volume)
 	name = "permafrost"
 	icon_state = "permafrost"
+
+/datum/random_map/noise/exoplanet/snow/replace_space
+	descriptor = "snoww exoplanet replaces space"
+	target_turf_type = /turf/space
