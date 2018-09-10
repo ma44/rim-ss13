@@ -84,7 +84,7 @@
 				if(stat != DEAD)
 					if(prob(15))
 						resuscitate()
-					
+
 					if(!H.check_has_mouth())
 						to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resustication!</span>")
 						return
@@ -118,7 +118,6 @@
 			return H.make_grab(H, src)
 
 		if(I_HURT)
-
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return

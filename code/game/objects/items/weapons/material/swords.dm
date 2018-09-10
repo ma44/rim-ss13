@@ -12,7 +12,7 @@
 //50 is the baseline; 0 is half as good against 50, 100 is twice as good against 50.
 
 /obj/item/weapon/material/sword
-	name = "claymore"
+	name = "sword"
 	desc = "You use the sharp part on your foes. And the flat part on your lesser foes."
 	icon_state = "claymore"
 	item_state = "claymore"
@@ -61,7 +61,7 @@
 	if(user.staminaloss < parrystaminalimit)
 		if(freeparry)
 			if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill * 2) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
-				user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+				user.visible_message("<span class='help'>\The [user] easily parries [attack_text] with \the [src]!</span>")
 				if(parry_sounds)
 					playsound(user.loc, pick(parry_sounds), 50, 1)
 				user.adjustStaminaLoss(parrystaminaloss)
@@ -69,23 +69,28 @@
 				freeparry = 0
 				resetparry(parrycooldown, user)
 				return 1
+			else
+				user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+				return 0
 		else	//Less chancce of parrying if recently parried, becomes much more dependent on the skill difference
 			if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))
-				user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+				user.visible_message("<span class='good'>\The [user] parries [attack_text] with \the [src]!</span>")
 				if(parry_sounds)
 					playsound(user.loc, pick(parry_sounds), 50, 1)
 				user.adjustStaminaLoss(parrystaminaloss * parrypenalty) //Loose a bit more stamina due to multiple parries in a row
 				health -= (damage / 20)
 				return 1
-			return 0
+			else
+				user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+				return 0
 
 /obj/item/weapon/material/sword/proc/resetparry(cooldown, mob/living/user)
 	sleep(cooldown)
 	freeparry = 1
-	user << "You can parry again without additional strain."
+	user << "You can parry again without additional strain!"
 
 /obj/item/weapon/material/sword/rapier
-	name = "Rapier"
+	name = "rapier"
 	desc = "A weapon that is perfect for dueling, can only thrust and is EXTREMELY bad at parrying multiple times in a short time."
 	icon_state = "katana" //No questioning pls
 	item_state = "katana"
@@ -140,14 +145,17 @@
 			return
 
 /obj/item/weapon/material/sword/spear
-	name = "Spear"
+	icon_state = "spearglass0"
+	item_state  = "spearglass"
+	name = "spear"
 	desc = "A long weapon that is extremely good for attacking people without shields in crowded places and throwing to disable. Just don't try to parry with it."
 	parryability = 10 //Hah no
-	health = 25 //Also pretty weak
+	health = 25 //Also pretty weak in durability
+	force = 30 //Also nice damage
 
 /obj/item/weapon/material/sword/spear/attack_self(mob/user)
 	//..()
-	switch_intent(user,STAB) //Stabbin only
+	switch_intent(user,STAB) //Stabbin only 2.0
 
 /obj/item/weapon/material/sword/replica
 	edge = 0

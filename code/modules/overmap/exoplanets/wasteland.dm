@@ -17,16 +17,14 @@
 
 /datum/random_map/noise/exoplanet/snow
 	descriptor = "snow exoplanet"
-	smoothing_iterations = 3
-	flora_prob = 50
-	large_flora_prob = 50
-	water_level_max = 0
+	smoothing_iterations = 1
+	//flora_prob = 10
+	//large_flora_prob = 20
+	water_level_max = 3
 	land_type = /turf/simulated/floor/exoplanet/snow
 	water_type = /turf/simulated/floor/exoplanet/ice
 	planetary_area = /area/exoplanet/snow
-	//fauna_types = list(/mob/living/simple_animal/hostile/dog)
-	//fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
-	fauna_types = list(/mob/living/simple_animal/cow) //They just somehow appear there
+	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
 	plantcolors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
 
 /area/exoplanet/snow

@@ -153,6 +153,7 @@
 		adapt_animal(A)
 
 /obj/effect/overmap/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
+/*
 	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
 	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
@@ -164,6 +165,8 @@
 	for(var/g in atmosphere.gas)
 		if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
 			S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+*/
+	return
 
 /obj/effect/overmap/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])
@@ -374,9 +377,18 @@
 
 /datum/random_map/noise/exoplanet/proc/spawn_flora(var/turf/T, var/big)
 	if(big)
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
+		var/somenumber = rand(1, 5)
+		switch(somenumber)
+			if(1)
+				new /obj/structure/flora/tree(T)
+			if(2)
+				new /obj/structure/flora/tree/pine(T)
+			if(3)
+				new /obj/structure/flora/tree/dead(T)
+		//new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
 	else
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(small_flora_types), 1)
+		new /obj/structure/flora/grass(T)
+		//new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(small_flora_types), 1)
 
 /turf/simulated/floor/exoplanet
 	name = "space land"

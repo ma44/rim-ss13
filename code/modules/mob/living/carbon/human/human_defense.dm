@@ -151,14 +151,14 @@ meteor_act
 	return null
 
 /mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit))
-		if(!shield) continue
-		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
-		if(.) return
+	for(var/obj/item/weapon/shield/seld in list(l_hand, r_hand, wear_suit))
+		if(!istype(seld, /obj/item/weapon/shield)) continue
+		if(seld.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text))
+			return 1
 	for(var/obj/item/weapon/material/sword/sord in list(l_hand, r_hand))
-		if(!sord) continue
-		. = sord.default_sword_parry(src, damage, damage_source, attacker, def_zone, attack_text)
-		if(.) return 1
+		if(!istype(sord, /obj/item/weapon/material/sword)) continue
+		if(sord.default_sword_parry(src, damage, damage_source, attacker, def_zone, attack_text))
+			return 1
 	return 0
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)

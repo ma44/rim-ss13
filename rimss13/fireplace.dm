@@ -55,6 +55,7 @@
 			if(C.happiness == 0)
 				to_chat(C, "That firepit sure feels nice.")
 				C.add_event("warmth", /datum/happiness_event/warmth/campfire)
+			C.bodytemperature = max(C.bodytemperature + 50, 360)
 	if(fuel <= 0)
 		fuel = 0
 		stoplighting()

@@ -40,7 +40,24 @@
 
 /obj/item/weapon/shield
 	name = "shield"
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler"
 	var/base_block_chance = 50
+	//All the above is related to the material/swords.dm located in the folder where this resides
+	var/freeparry = 1 //if  you can have a free guaranteed parry against someone of the same skill
+	var/parrystaminaloss = 12
+	var/parrycooldown = 35 //Deciseconds
+	var/parrypenalty = 1.1 //small additional stamina damage when parrying multiple times in a row
+	var/parrystaminalimit = 50 //How much staminadamage is enough to negate any further parries
+	var/parryability = 50 //How easy it is to parry with
+	weapon_speed_delay = 50 //Stop ruining those free parries please thank you
+	parry_sounds = list('sound/weapons/blunt_parry1.ogg', 'sound/weapons/blunt_parry2.ogg', 'sound/weapons/blunt_parry3.ogg')
+
+/obj/item/weapon/shield/pickup(mob/user) //Changes stats based on skill of the user
+	if(ishuman(user))
+		var/skicoeff = (0.5 + ((10 % user.melee_skill) / 10)) //0 skill = 0.5, 50 = 1, 100 = 1.5
+		parrycooldown = parrycooldown / skicoeff
+		parrystaminaloss = parrystaminaloss / skicoeff
 
 /obj/item/weapon/shield/handle_shield(mob/living/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
@@ -49,10 +66,43 @@
 	//block as long as they are not directly behind us
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
-		if(prob(get_block_chance(user, damage, damage_source, attacker)))
-			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-			return 1
-	return 0
+		if(istype(damage_source, /obj/item/weapon/material/sword) || istype(damage_source, /obj/item/weapon/shield)) //uh oh snowflake time
+			if(freeparry)
+				if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill * 2) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
+					user.visible_message("<span class='help'>\The [user] easily parries [attack_text] with \the [src]!</span>")
+					if(parry_sounds)
+						playsound(user.loc, pick(parry_sounds), 50, 1)
+					user.adjustStaminaLoss(parrystaminaloss)
+					health -= (damage / 20) //Damage done to weapon depends on the original damage of the thing
+					freeparry = 0
+					resetparry(parrycooldown, user)
+					return 1
+				else
+					user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+			else
+				if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
+					user.visible_message("<span class='good'>\The [user] parries [attack_text] with \the [src]!</span>")
+					if(parry_sounds)
+						playsound(user.loc, pick(parry_sounds), 50, 1)
+					user.adjustStaminaLoss(parrystaminaloss)
+					health -= (damage / 20) //Damage done to weapon depends on the original damage of the thing
+					freeparry = 0
+					resetparry(parrycooldown, user)
+					return 1
+				else
+					user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+					return 0
+
+		else
+			if(prob(get_block_chance(user, damage, damage_source, attacker)))
+				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+				return 1
+			return 0
+
+/obj/item/weapon/shield/proc/resetparry(cooldown, mob/living/user)
+	sleep(cooldown)
+	freeparry = 1
+	user << "You can parry again without additional strain!"
 
 /obj/item/weapon/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	return base_block_chance
@@ -113,7 +163,7 @@
 
 /obj/item/weapon/shield/buckler/handle_shield(mob/living/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/items/buckler_block.ogg', 50, 1)
+	//if(.) playsound(user.loc, 'sound/items/buckler_block.ogg', 50, 1)
 
 /obj/item/weapon/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))

@@ -6,7 +6,6 @@
 	descriptor = "tundra (replacement)"
 	target_turf_type = /turf/space
 
-
 /datum/random_map/noise/tundra/New()
 	..()
 	for(var/turf/simulated/floor/snow/stuff in world)
@@ -52,8 +51,9 @@
 	if(isnull(val)) val = 0
 	switch(val)
 		if(2)
-			if(prob(5))
-				new /mob/living/simple_animal/crab(T)
+			return
+			//if(prob(5))
+				//new /mob/living/simple_animal/crab(T)
 		if(6)
 			if(prob(60))
 				var/grass_path = pick(typesof(/obj/structure/flora/grass)-/obj/structure/flora/grass)
@@ -64,8 +64,8 @@
 		if(7)
 			if(prob(10))
 				new /obj/structure/sink/puddle
-			else if(prob(60))
-				new /obj/structure/flora/bush(T)
+			//else if(prob(60))
+				//new /obj/structure/flora/bush(T)
 			else if(prob(30))
 				new /obj/structure/flora/tree/pine(T)
 			else if(prob(20))

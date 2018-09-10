@@ -112,6 +112,14 @@
 	..()
 	icon_state = "snowbush[rand(1, 6)]"
 
+/obj/structure/flora/bush/attack_hand(mob/living/carbon/M as mob)
+	M << "You begin uprooting \the [src]."
+	M.visible_message("[M] begins uprooting \the [src].")
+	if(do_after(M, 10, src))
+		M << "You uproot the [src]."
+		M.visible_message("[M] uproots \the [src].")
+		qdel(src)
+
 /obj/structure/flora/pottedplant
 	name = "potted plant"
 	icon = 'icons/obj/plants.dmi'

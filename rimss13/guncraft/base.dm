@@ -88,9 +88,9 @@
 	desc = "A gun that is premade to be like a pistol."
 
 /obj/item/weapon/gun/projectile/craft/premade/Initialize()
-	barrel = /obj/item/weapon/gun/projectile/attach/barrel
-	handle = /obj/item/weapon/gun/projectile/attach/handle
-	base = /obj/item/weapon/gun/projectile/attach/base
+	barrel = new/obj/item/weapon/gun/projectile/attach/barrel(src)
+	handle = new/obj/item/weapon/gun/projectile/attach/handle(src)
+	base = new/obj/item/weapon/gun/projectile/attach/base(src)
 	..()
 	update_icon()
 
