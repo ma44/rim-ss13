@@ -37,8 +37,3 @@
 				playsound(src, 'sound/items/match.ogg', 50, 1)
 		else
 			to_chat(user, "You strike the two stones together, but nothing happens.")
-
-/obj/item/stack/rods/stick
-	name = "wodden stick"
-	desc = "A wooden stick."
-	icon_state = "sticks"
