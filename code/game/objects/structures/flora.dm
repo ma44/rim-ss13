@@ -7,6 +7,7 @@
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	var/life = 5 //How many more strikes to hit it
+	var/leafboi = 10 //amount of leaves
 
 /obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
@@ -39,6 +40,14 @@
 	else
 		return ..()
 
+/obj/structure/flora/tree/attack_hand(mob/user as mob)
+	var/obj/item/stack/grass/grass = new/obj/item/stack/grass(src)
+	if(user.put_in_hands(grass) && leafboi >= 1))
+		user << "You take some leafs from the tree."
+		leafboi -= 1
+		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)
+	else
+		user << "Sadly there's no more leaves despite how the tree looks like."
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	icon = 'icons/obj/flora/pinetrees.dmi'
@@ -64,7 +73,6 @@
 /obj/structure/flora/tree/dead/New()
 	..()
 	icon_state = "tree_[rand(1, 6)]"
-
 
 //grass
 /obj/structure/flora/grass
@@ -95,11 +103,12 @@
 	icon_state = "snowgrassall[rand(1, 3)]"
 
 /obj/structure/flora/grass/attack_hand(var/mob/user)
-	//var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
-	//user.put_in_active_hand(g)
 	if(do_after(user, 20, src))
 		to_chat(user, "You rip some grass out of the ground.")
-		del(src)
+		var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
+		user.put_in_active_hand(g)
+		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)
+		qdel(src)
 
 //bushes
 /obj/structure/flora/bush
@@ -116,8 +125,11 @@
 	M << "You begin uprooting \the [src]."
 	M.visible_message("[M] begins uprooting \the [src].")
 	if(do_after(M, 10, src))
+		var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
+		user.put_in_active_hand(g)
 		M << "You uproot the [src]."
 		M.visible_message("[M] uproots \the [src].")
+		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)
 		qdel(src)
 
 /obj/structure/flora/pottedplant
