@@ -1,7 +1,7 @@
 /obj/item/stack/grass
-	name = "grass rope"
-	singular_name = "piece of rope grass"
-	desc = "Some rope made of grass bundled up neatly. Useful for making primitive tools and tightening things together."
+	name = "leaves"
+	singular_name = "leaf"
+	desc = "Some leaves, these kind of leaves seem to be very good for rope related purposes. Useful for making primitive tools and tightening things together."
 	icon_state = "rope"
 	icon = 'rimss13/grass.dmi'
 	max_amount = 10
@@ -18,7 +18,7 @@
 			playsound(src, 'sound/effects/sharpen_long1.ogg',50, 1)
 		else
 			playsound(src, 'sound/effects/sharpen_long2.ogg',50, 1)
-		if(prob(5))
+		if(prob(15))
 			var/obj/structure/firepit/firepit = 0
 			for(var/obj/structure/firepit/F in view(1))
 				if(F)
