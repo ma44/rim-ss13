@@ -152,10 +152,18 @@
 	parryability = 10 //Hah no
 	health = 25 //Also pretty weak in durability
 	force = 30 //Also nice damage
+	throwforce = 30 //easy disable probably
 
 /obj/item/weapon/material/sword/spear/attack_self(mob/user)
 	//..()
 	switch_intent(user,STAB) //Stabbin only 2.0
+
+/obj/item/weapon/material/sword/spear/throw_impact(atom/hit_atom)
+	var/mob/living/carbon/C = hit_atom
+	C.Weaken(3)
+	health -= 12.5 //no spamming this meme
+	
+
 
 /obj/item/weapon/material/sword/replica
 	edge = 0
