@@ -257,7 +257,9 @@
 /obj/item/stack/material/wood/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
 		to_chat(user, "You start to cut the wooden plank.")
+		playsound(src, 'sound/effects/wood-chop_01.ogg', 50, 1)
 		if(do_after(user, 20, src))
+			playsound(src, 'sound/effects/wood_chop_02.ogg',50, 1)
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/rods/stick/stick = new /obj/item/stack/rods/stick(locationthing)
 			stick.amount = 2
