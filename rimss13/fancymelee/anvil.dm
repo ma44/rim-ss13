@@ -38,11 +38,13 @@
 	var/obj/item/scrapmetal/inneritem = null //The thing it currently holds, makes an overlay on top of the anvil
 	icon = 'rimss13/blacksmithing.dmi'
 	icon_state = "anvil"
+	var/list/listofthing = list(/obj/item/weapon/material/sword,
+	/obj/item/weapon/material/sword/rapier,
+	/obj/item/weapon/material/sword/spear)
 
 /obj/machinery/anvil/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/stack/material/iron))
 		var/obj/item/stack/material/typecast = I
-		var/listofthing = typesof(/obj/item/weapon/material/sword)
 		var/obj/item/weapon/material/sword/thing = input(user, "What do you want to smith?", "Picking a thing") in listofthing
 		var/obj/item/weapon/material/sword/thing2 = new thing
 		if(thing2.materialsheet < typecast.amount)
