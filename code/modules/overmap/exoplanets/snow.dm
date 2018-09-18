@@ -20,9 +20,11 @@
 	smoothing_iterations = 3
 	flora_prob = 50
 	large_flora_prob = 50
-	water_level_max = 0
+	water_level_min = 0
+	water_level_max = 1
 	land_type = /turf/simulated/floor/exoplanet/snow
-	water_type = /turf/simulated/floor/exoplanet/ice
+	//water_type = /turf/simulated/floor/exoplanet/ice
+	water_type = /obj/effect/waterspawn
 	planetary_area = /area/exoplanet/snow
 	//fauna_types = list(/mob/living/simple_animal/hostile/dog)
 	//fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
@@ -36,6 +38,17 @@
 /datum/random_map/noise/ore/poor
 	deep_val = 0.8
 	rare_val = 0.9
+
+/obj/effect/waterspawn //Randomly generates a big enough spot of water
+	name = "water spawner boi"
+	
+/obj/effect/waterspawn/Initialize()
+	..()
+	for(var/turf/t in range(2)) //Forgive me for all of this
+		t.ChangeTurf(/turf/simulated/floor/exoplanet/water/shallow) //base of water
+	for(var/turf/t2 in range(3))
+		if(prob(75)) //The outer edges of the water spot will have some missing spots
+			t.ChangeTurf(/turf/simulation/floor/exoplanet/water/shallow)
 
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
