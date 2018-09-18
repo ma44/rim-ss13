@@ -11,11 +11,12 @@
 
 /obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
+		user.setClickCooldown(10)
 		if((life > 0) && do_after(user, 10, src))
 			user.visible_message("[user] hits the [src] with the [W]!", "You hit the [src] with the [W].")
 			life -= 1
 			var/number = rand(1, 7)
-			switch(number) //Damm the efficiency in this
+			switch(number) //save me
 				if(1)
 					playsound(src, 'sound/effects/wood_chop_01.ogg',50, 1)
 				if(2)
@@ -48,6 +49,7 @@
 		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)
 	else
 		user << "Sadly there's no more leaves despite how the tree looks like."
+
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	icon = 'icons/obj/flora/pinetrees.dmi'
@@ -103,6 +105,9 @@
 	icon_state = "snowgrassall[rand(1, 3)]"
 
 /obj/structure/flora/grass/attack_hand(var/mob/user)
+	user.setClickCooldown(20)
+	M << "You begin uprooting \the [src]."
+	M.visible_message("[M] begins uprooting \the [src].")
 	if(do_after(user, 20, src))
 		to_chat(user, "You rip some grass out of the ground.")
 		var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
@@ -122,6 +127,7 @@
 	icon_state = "snowbush[rand(1, 6)]"
 
 /obj/structure/flora/bush/attack_hand(mob/living/carbon/M as mob)
+	user.setClickCooldown(20)
 	M << "You begin uprooting \the [src]."
 	M.visible_message("[M] begins uprooting \the [src].")
 	if(do_after(M, 10, src))
