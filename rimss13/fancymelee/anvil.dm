@@ -60,6 +60,7 @@
 	if((istype(I, /obj/item/smith_hammer)) && inneritem)
 		if(inneritem.heat <= 0)
 			user << "The [inneritem.name] isn't hot enough to meld, heat it up!"
+		user.setClickCooldown(10) //No hitting it multiple times in a row
 		if(do_after(user, 10, src))
 			inneritem.heat -= 1
 			inneritem.progress += 1
