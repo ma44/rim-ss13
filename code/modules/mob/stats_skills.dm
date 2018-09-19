@@ -146,15 +146,17 @@ proc/strToSpeedModifier(var/strength, var/w_class)//Looks messy. Is messy. Is al
 //Skill helpers.
 /mob/proc/skillnumtodesc(var/skill)
 	switch(skill)
-		if(0 to 25)
+		if(0 to 20)
 			return "<small><i>pathetic</i></small>"
-		if(25 to 45)
+		if(20 to 40)
 			return "unskilled"
-		if(45 to 60)
+		if(40 to 60)
 			return pick("alright", "ok", "not bad")
 		if(60 to 80)
 			return "skilled"
-		if(80 to INFINITY)
+		if(80 to 99)
+			return "veteran"
+		if(100 to INFINITY)
 			return "<b>GOD LIKE</b>"
 
 /mob/proc/add_skills(var/melee, var/ranged, var/medical, var/engineering)//To make adding skills quicker.
