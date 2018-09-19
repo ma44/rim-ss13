@@ -176,5 +176,6 @@ proc/strToSpeedModifier(var/strength, var/w_class)//Looks messy. Is messy. Is al
 	message += "I am <b>[skillnumtodesc(ranged_skill)]</b> with guns.</b></i>\n"
 	message += "I am <b>[skillnumtodesc(medical_skill)]</b> with medicine.</b></i>\n"
 	message += "I am <b>[skillnumtodesc(engineering_skill)]</b> at engineering.</b></i>\n"
+	message += "I am <b>[skillnumtodesc(crafting_skill)]</b> at crafting.</b></i>\n"
 
 	to_chat(src, message)
