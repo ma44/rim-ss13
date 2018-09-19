@@ -46,6 +46,7 @@
 
 	var/time = 0 			//time in 1/10th of second
 	var/base_chance = 100 	//base chance to get it right without skills
+	var/soundtoplay //If you want a sound to play at starting of a crafting here you go immersive person
 
 /datum/crafting_recipe/proc/check_parts(var/list/things)
 	if(!parts)
@@ -110,6 +111,8 @@
 	if(!can_make(user,spot))
 		return 0
 	user << "<span class='notice'>You start making \a [name].</span>"
+	if(soundtoplay)
+		playsound(src, soundtoplay, 50, 1)
 	if(do_after(user, time))
 		if(!can_make(user,spot))
 			user << "<span class='warning'>You are missing some things to make \a [name].</span>"
