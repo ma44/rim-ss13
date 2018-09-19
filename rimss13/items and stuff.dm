@@ -52,7 +52,7 @@
 	
 /obj/item/primitivetool/get_examine_desc(mob/user)
 	var/msg = desc
-	msg += " This tool has a durability percentage of [initial(durability) - durability] left."
+	msg += " This tool has a durability percentage of [initial(durability) / durability] left."
 	
 /obj/item/primitivetool/afterattack(obj/target, mob/user, flag)
 	..()
