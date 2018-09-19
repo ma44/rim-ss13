@@ -36,19 +36,15 @@
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
 			wood.amount = 3
+			var/obj/item/stack/material/grass/grass = new /obj/item/stack/grass(locationthing)
+			grass.amount = 3
+			new/obj/item/weapon/material/stick(locationthing)
+			new/obj/item/weapon/material/stick(locationthing)
+			new/obj/item/weapon/material/stick(locationthing)
 			del(src)
 
 	else
 		return ..()
-
-/obj/structure/flora/tree/attack_hand(mob/user as mob)
-	var/obj/item/stack/grass/grass = new/obj/item/stack/grass(src)
-	if(user.put_in_hands(grass) && leafboi >= 1))
-		user << "You take some leafs from the tree."
-		leafboi -= 1
-		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)
-	else
-		user << "Sadly there's no more leaves despite how the tree looks like."
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
@@ -117,7 +113,8 @@
 
 //bushes
 /obj/structure/flora/bush
-	name = "bush"
+	name = "stick bush"
+	desc = "This bush seems to have some sticks on it."
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
 	anchored = 1
@@ -131,7 +128,8 @@
 	M << "You begin uprooting \the [src]."
 	M.visible_message("[M] begins uprooting \the [src].")
 	if(do_after(M, 10, src))
-		var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
+		var/obj/item/weapon/material/stick/s = new/obj/item/weapon/material/stick(src.loc)
+		user.put_in_active_hand(s)
 		user.put_in_active_hand(g)
 		M << "You uproot the [src]."
 		M.visible_message("[M] uproots \the [src].")
