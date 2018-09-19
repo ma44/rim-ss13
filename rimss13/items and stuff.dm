@@ -37,3 +37,24 @@
 				playsound(src, 'sound/items/match.ogg', 50, 1)
 		else
 			to_chat(user, "You strike the two stones together, but nothing happens.")
+
+/obj/item/primitivetool
+	name = "primitive survival tool"
+	desc = "A extremely primitive tool that allows you to chop down trees and harvest some stone from ore deposits with it's semi sharp edge."
+	force = 5
+	sharp = 1
+	edge = 0 //No delimbing please
+	durability = 50 //TODO: make this start off at different numbers based on crafter's skill
+	
+/obj/item/primitivetool/get_examine_desc(mob/user)
+	var/msg = desc
+	msg += " This tool has a durability percentage of [initial(durability) - durability] left."
+	
+/obj/item/primitivetool/afterattack(obj/target, mob/user, flag)
+	..()
+	durability--
+	if(durability <= 0)
+		var/turf/T = get_turf(src)
+		T.visible_message("<span class='danger'>\The [src] suddenly breaks!</span>")
+		qdel(src) //f
+	
