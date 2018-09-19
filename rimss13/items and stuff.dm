@@ -38,13 +38,17 @@
 		else
 			to_chat(user, "You strike the two stones together, but nothing happens.")
 
+//A proc you can call to influence an item's stats after crafting, should probably also apply to blacksmithing but oh well
+/obj/item/proc/aftercraft(craftingskill) //out of all the places to put this, it's here
+	return
+
 /obj/item/primitivetool
 	name = "primitive survival tool"
 	desc = "A extremely primitive tool that allows you to chop down trees and harvest some stone from ore deposits with it's semi sharp edge."
 	force = 5
 	sharp = 1
 	edge = 0 //No delimbing please
-	durability = 50 //TODO: make this start off at different numbers based on crafter's skill
+	durability = 10 //TODO: make this start off at different numbers based on crafter's skill
 	
 /obj/item/primitivetool/get_examine_desc(mob/user)
 	var/msg = desc
@@ -58,3 +62,6 @@
 		T.visible_message("<span class='danger'>\The [src] suddenly breaks!</span>")
 		qdel(src) //f
 	
+/obj/item/primitivetool/aftercraft(craftingskill)
+	durability = durability * (craftingskill / 20) //Up to a 5x durability bonus
+	desc += " This tool also seems to have been crafted by a [skillnumtodesc(craftingskill)] crafter."
