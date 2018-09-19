@@ -47,6 +47,7 @@
 	var/time = 0 			//time in 1/10th of second
 	var/base_chance = 100 	//base chance to get it right without skills
 	var/soundtoplay //If you want a sound to play at starting of a crafting here you go immersive person
+	var/skillbased = 0 //If the crafting recipe's result is influenced by skill of the user
 
 /datum/crafting_recipe/proc/check_parts(var/list/things)
 	if(!parts)
@@ -122,6 +123,8 @@
 			for(var/T in result)
 				for(var/i = 1 to result[T])
 					new T(spot)
+					if(skillbased)
+						T.aftercraft(user.crafting_skill)
 			user << "<span class='notice'>You make \a [name].</span>"
 		else
 			user << "<span class='warning'>You've failed to make \a [name].</span>"
