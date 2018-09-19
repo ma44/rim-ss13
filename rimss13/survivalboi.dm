@@ -5,4 +5,4 @@
 	result = list(/obj/item/primitivetool = 1)
 	time = 50
 	base_chance = 100
-
+	soundtoplay = 'sound/effects/sharpen_long1.ogg' //Sample sound for now until I get something better for it
