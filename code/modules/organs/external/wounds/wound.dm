@@ -120,8 +120,10 @@
 
 	return 0
 
-/datum/wound/proc/bandage()
+/datum/wound/proc/bandage(skill)
 	bandaged = 1
+	if(skill)
+		medicalskill = skill
 
 /datum/wound/proc/salve()
 	salved = 1
