@@ -274,6 +274,21 @@
 			if(wound.embedded_objects.len)
 				shown_objects += wound.embedded_objects
 				wound_flavor_text["[E.name]"] += "The [wound.desc] on [T.his] [E.name] has \a [english_list(wound.embedded_objects, and_text = " and \a ", comma_text = ", \a ")] sticking out of it!<br>"
+			var/infectionflavor
+			var/bandagestate = "unbandaged"
+			if(E.germ_level < 100)
+				infectionflavor = "unlikely infected."
+			if(E.germ_level >= 100)
+				infectionflavor = "slightly infected."
+			if(E.germ_level >= 500)
+				infectionflavor = "very infected."
+			if(E.germ_level >= 1000)
+				infectionflavor = "EXTREMELY infected. Chop it off already!"
+			if(E.bandaged)
+				bandagestate = "bandaged."
+			if(E.salved)
+				bandagestate = "salved."
+			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor].\n"
 
 	msg += "<span class='warning'>"
 	for(var/limb in wound_flavor_text)
