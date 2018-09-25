@@ -131,7 +131,7 @@
 					continue
 				if(used == amount)
 					break
-				if(!do_mob(user, M, W.damage/ 2.5 / (user.medicial_skill / 4))) //Lot slower to bandage but skill makes it go faster
+				if(!do_mob(user, M, W.damage/ 2.5 / (min(user.medicial_skill / 5, 1)))) //Lot slower to bandage but skill makes it go faster
 					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 					break
 
