@@ -16,6 +16,7 @@
 	var/created = 0
 	var/amount = 1             // number of wounds of this type
 	var/germ_level = 0         // amount of germs in the wound
+	var/medicalskill = 0	   // The skill of the person that attended the wound
 
 	/*  These are defined by the wound type and should not be changed */
 	var/list/stages            // stages such as "cut", "deep cut", etc.
