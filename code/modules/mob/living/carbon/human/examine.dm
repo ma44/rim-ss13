@@ -213,7 +213,7 @@
 		else if(!client)
 			msg += "<span class='deadsay'>[T.He] [T.is] [ssd_msg].</span>\n"
 
-	var/mhealth = (getBruteLoss() + getFireLoss())//How injured they look. Not not nescessarily how hurt they actually are.
+	var/mhealth = (getBruteLoss() + getFireLoss())//How injured they look. Not nescessarily how hurt they actually are.
 
 	if(mhealth >= 25 && mhealth < 50)//Is the person a little hurt?
 		msg += "<span class='warning'><b>[T.He] looks somewhat injured.\n</b></span>"
@@ -288,7 +288,12 @@
 				bandagestate = "bandaged."
 			if(E.salved)
 				bandagestate = "salved."
-			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor].\n"
+			
+			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor]. "
+			if(bandagestate != "unbandaged") //See if the examiner could improve on the previous person's efforts
+				if(user.medical_skill > E.medicalskill)
+					wound_flavor_text["[E.name]"]  += "You can definitely improve the existing bandages."
+			wound_flavor_text["[E.name]"] += "\n"
 
 	msg += "<span class='warning'>"
 	for(var/limb in wound_flavor_text)
