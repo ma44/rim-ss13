@@ -35,7 +35,7 @@
 	var/crit_failure_modifier = 0
 	var/crit_mood_modifier = 0
 
-	var/crafting_skill = rand(0, 100) //Currently rand for testing purposes
+	var/crafting_skill = 50
 
 /mob/proc/get_success_chance()
 	return crit_success_chance + crit_success_modifier + crit_mood_modifier

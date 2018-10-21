@@ -41,14 +41,14 @@
 
 /obj/effect/waterspawn //Randomly generates a big enough spot of water
 	name = "water spawner boi"
-	
+
 /obj/effect/waterspawn/Initialize()
 	..()
 	for(var/turf/t in range(2)) //Forgive me for all of this
 		t.ChangeTurf(/turf/simulated/floor/exoplanet/water/shallow) //base of water
 	for(var/turf/t2 in range(3))
 		if(prob(75)) //The outer edges of the water spot will have some missing spots
-			t.ChangeTurf(/turf/simulation/floor/exoplanet/water/shallow)
+			t2.ChangeTurf(/turf/simulated/floor/exoplanet/water/shallow)
 
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"

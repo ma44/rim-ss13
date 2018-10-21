@@ -107,18 +107,20 @@
 			use(used)
 
 /obj/item/stack/medical/bruise_pack/primitive //Primitive bandages; some leaves put together and hopefully has water on them
-	name "primititive leaf wraps"
+	name = "primititive leaf wraps"
 	desc = "By combining some leaves together in a intrinsic way, it can be used as a very primitive bandage. Pretty easy to use but just don't try to use it without proper training."
 	singular_name = "primitive leaf wrap"
 
 /obj/item/stack/medical/bruise_pack/primitive/attack(mob/living/carbon/M as mob, mob/user as mob) //Pretty snowflaky and special
 	if(..())
 		return 1
-	
+
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
-
+		if(!(istype(user, /mob/living/carbon/human)))
+			return
+		var/mob/living/carbon/human/U = user
 		if(affecting.is_bandaged())
 			to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>")
 			return 1
@@ -131,7 +133,7 @@
 					continue
 				if(used == amount)
 					break
-				if(!do_mob(user, M, W.damage/ 2.5 / (min(user.medicial_skill / 5, 1)))) //Lot slower to bandage but skill makes it go faster
+				if(!do_mob(U, M, W.damage / 2.5 / (min(U.medical_skill / 5, 1)))) //Lot slower to bandage but skill makes it go faster compared to base game
 					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 					break
 

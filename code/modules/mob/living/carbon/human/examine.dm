@@ -1,7 +1,7 @@
 /mob/living/carbon/human/examine(mob/user)
 	if(!isobserver(user))
 		user.visible_message("<small>[user] looks at [src].</small>")
-	
+
 	if(get_dist(user,src) > 5)//Don't get descriptions of things far away.
 		to_chat(user, "<span class='info'>It's too far away to see clearly.</span>")
 		return
@@ -276,23 +276,25 @@
 				wound_flavor_text["[E.name]"] += "The [wound.desc] on [T.his] [E.name] has \a [english_list(wound.embedded_objects, and_text = " and \a ", comma_text = ", \a ")] sticking out of it!<br>"
 			var/infectionflavor
 			var/bandagestate = "unbandaged"
-			if(E.germ_level < 100)
+			if(wound.germ_level < 100)
 				infectionflavor = "unlikely infected."
-			if(E.germ_level >= 100)
+			if(wound.germ_level >= 100)
 				infectionflavor = "slightly infected."
-			if(E.germ_level >= 500)
+			if(wound.germ_level >= 500)
 				infectionflavor = "very infected."
-			if(E.germ_level >= 1000)
+			if(wound.germ_level >= 1000)
 				infectionflavor = "EXTREMELY infected. Chop it off already!"
-			if(E.bandaged)
+			if(wound.bandaged)
 				bandagestate = "bandaged."
-			if(E.salved)
+			if(wound.salved)
 				bandagestate = "salved."
-			
+
 			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor]. "
 			if(bandagestate != "unbandaged") //See if the examiner could improve on the previous person's efforts
-				if(user.medical_skill > E.medicalskill)
-					wound_flavor_text["[E.name]"]  += "You can definitely improve the existing bandages."
+				if(istype(user, /mob/living/carbon))
+					var/mob/living/carbon/typecastboi = user
+					if(typecastboi.medical_skill > wound.medicalskill)
+						wound_flavor_text["[E.name]"]  += "You can definitely improve the existing bandages."
 			wound_flavor_text["[E.name]"] += "\n"
 
 	msg += "<span class='warning'>"

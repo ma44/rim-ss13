@@ -123,8 +123,9 @@
 			for(var/T in result)
 				for(var/i = 1 to result[T])
 					new T(spot)
-					if(skillbased)
-						T.aftercraft(user.crafting_skill)
+					if((istype(T, /obj/item)) && skillbased)
+						var/obj/item/skillitem = T
+						skillitem.aftercraft(user.crafting_skill)
 			user << "<span class='notice'>You make \a [name].</span>"
 		else
 			user << "<span class='warning'>You've failed to make \a [name].</span>"

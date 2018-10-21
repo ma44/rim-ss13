@@ -36,7 +36,7 @@
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
 			wood.amount = 3
-			var/obj/item/stack/material/grass/grass = new /obj/item/stack/grass(locationthing)
+			var/obj/item/stack/grass/grass = new /obj/item/stack/grass(locationthing)
 			grass.amount = 3
 			new/obj/item/weapon/material/stick(locationthing)
 			new/obj/item/weapon/material/stick(locationthing)
@@ -102,8 +102,8 @@
 
 /obj/structure/flora/grass/attack_hand(var/mob/user)
 	user.setClickCooldown(20)
-	M << "You begin uprooting \the [src]."
-	M.visible_message("[M] begins uprooting \the [src].")
+	user << "You begin uprooting the [src]."
+	user.visible_message("[user] begins uprooting the [src].")
 	if(do_after(user, 20, src))
 		to_chat(user, "You rip some grass out of the ground.")
 		var/obj/item/stack/grass/g = new/obj/item/stack/grass(src.loc)
@@ -124,13 +124,12 @@
 	icon_state = "snowbush[rand(1, 6)]"
 
 /obj/structure/flora/bush/attack_hand(mob/living/carbon/M as mob)
-	user.setClickCooldown(20)
+	M.setClickCooldown(20)
 	M << "You begin uprooting \the [src]."
 	M.visible_message("[M] begins uprooting \the [src].")
 	if(do_after(M, 10, src))
 		var/obj/item/weapon/material/stick/s = new/obj/item/weapon/material/stick(src.loc)
-		user.put_in_active_hand(s)
-		user.put_in_active_hand(g)
+		M.put_in_active_hand(s)
 		M << "You uproot the [src]."
 		M.visible_message("[M] uproots \the [src].")
 		playsound(src, 'sound/effects/footstep/dirt1.ogg', 50, 1)

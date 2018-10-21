@@ -48,12 +48,13 @@
 	force = 5
 	sharp = 1
 	edge = 0 //No delimbing please
-	durability = 10 //TODO: make this start off at different numbers based on crafter's skill
-	
-/obj/item/primitivetool/get_examine_desc(mob/user)
+	var/durability = 10 //TODO: make this start off at different numbers based on crafter's skill
+
+/obj/item/primitivetool/examine(mob/user)
 	var/msg = desc
-	msg += " This tool has a durability percentage of [initial(durability) / durability] left."
-	
+	var/initialdurability = initial(durability)
+	msg += " This tool has a durability percentage of [initialdurability / durability] left."
+
 /obj/item/primitivetool/afterattack(obj/target, mob/user, flag)
 	..()
 	durability--
@@ -61,7 +62,12 @@
 		var/turf/T = get_turf(src)
 		T.visible_message("<span class='danger'>\The [src] suddenly breaks!</span>")
 		qdel(src) //f
-	
+
 /obj/item/primitivetool/aftercraft(craftingskill)
 	durability = durability * (craftingskill / 20) //Up to a 5x durability bonus
-	desc += " This tool also seems to have been crafted by a [skillnumtodesc(craftingskill)] crafter."
+	//INCOMING SNOWFLAKE
+	var/mob/lviing/carbon/human/l = new/mob/living/carbon/human()
+	l.crafting_skill = craftingskill
+	var/skillnum = l.skillnumtodesc(l.crafting_skill)
+	qdel(l)
+	desc += " This tool also seems to have been crafted by a [skillnum] crafter."
