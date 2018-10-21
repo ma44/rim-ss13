@@ -4,10 +4,10 @@
 HEALTH_THRESHOLD_SOFTCRIT 0
 
 ## level of health at which a mob becomes unconscious (crit)
-HEALTH_THRESHOLD_CRIT -50
+HEALTH_THRESHOLD_CRIT -200
 
 ## level of health at which a mob becomes dead
-HEALTH_THRESHOLD_DEAD -100
+HEALTH_THRESHOLD_DEAD -500
 
 ## Determines whether bones can be broken through excessive damage to the organ
 ## 0 means bones can't break, 1 means they can
@@ -18,11 +18,11 @@ LIMBS_CAN_BREAK 1
 
 ## multiplier which enables organs to take more damage before bones breaking or limbs being destroyed
 ## 100 means normal, 50 means half
-ORGAN_HEALTH_MULTIPLIER 90
+ORGAN_HEALTH_MULTIPLIER 100
 
 ## multiplier which influences how fast organs regenerate naturally
 ## 100 means normal, 50 means half
-ORGAN_REGENERATION_MULTIPLIER 25
+ORGAN_REGENERATION_MULTIPLIER 100
 
 ### REVIVAL ###
 
