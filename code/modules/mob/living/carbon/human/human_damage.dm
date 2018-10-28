@@ -233,9 +233,9 @@
 	if(!species || !dam_type) return FALSE
 
 	if(dam_type == BRUTE)
-		return(getBruteLoss() < species.total_health / 2)
+		return(getBruteLoss() < species.total_health)
 	else if(dam_type == BURN)
-		return(getFireLoss() < species.total_health / 2)
+		return(getFireLoss() < species.total_health)
 	return FALSE
 
 ////////////////////////////////////////////
