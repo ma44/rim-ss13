@@ -83,15 +83,6 @@
 		if(!client && !mind)
 			species.handle_npc(src)
 
-	if((prob(shock_stage)) && (health > 0)) //You can scream from pain while not in really horrible condition
-		if(prob(25))
-			var/painsound
-			if(src.gender == MALE)
-				painsound = "sound/voice/Screams_Male_[rand(1,3)].ogg"
-			if(src.gender == FEMALE)
-				painsound = "sound/voice/Screams_Male_[rand(1,3)].ogg"
-			playsound(src, painsound, 50, 0, 1)
-
 	if((prob(getOxyLoss())) && (health > 0))
 		if(prob(50))
 			src.gasp_sound()
