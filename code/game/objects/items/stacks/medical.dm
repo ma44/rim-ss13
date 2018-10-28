@@ -1,3 +1,44 @@
+/obj/item/stack/medical/primitive //Primitive bandages; some leaves put together and hopefully has water on them
+	name = "primititive leaf wraps"
+	desc = "By combining some leaves together in a intrinsic way, it can be used as a very primitive bandage. Pretty easy to use but just don't try to use it without proper training."
+	singular_name = "primitive leaf wrap"
+	amount = 1
+	max_amount = 5
+	heal_brute = 0
+	heal_burn = 0
+	animal_heal = 0
+
+/obj/item/stack/medical/primitive/attack(mob/living/carbon/M as mob, mob/user as mob) //Pretty snowflaky and special
+	if(..())
+		if(istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+			if(!(istype(user, /mob/living/carbon/human)))
+				return
+			var/mob/living/carbon/human/U = user
+			if(affecting.is_bandaged())
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>")
+				return 1
+			user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
+			"<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
+			for(var/datum/wound/W in affecting.wounds)
+				if(amount < 0) //Still got enough bandages
+					to_chat(user, "<span class ='notice'>You ran out of bandages to treat the wounds.</span>")
+					break
+				if(W.bandaged && (W.medicalskill < U.medicalskill)) //This wound's current bandages could be improved on
+					user.visible_message("<span class='notice'>\The [U] starts improving the treatment on [M]'s [W.desc].</span>")
+					if(!do_mob(U, M, min(U.medical_skill / 5, 1))) //Much more faster to improve on wounds already bandaged
+						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
+					else
+						continue
+				if(!do_mob(U, M, W.damage / 2.5 / (min(U.medical_skill / 5, 1)))) //Lot slower to bandage but skill makes it go faster compared to base game
+					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
+					break
+				user.visible_message("<span class='notice'>\The [user] treats the [W.desc] on [affecting.name].</span>", \
+				"<span class='notice'>The [user] treats the [W.desc] on [affecting.name].</span>" )
+				W.bandage()
+				use(1)
+
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
@@ -101,53 +142,6 @@
 			affecting.update_damages()
 			if(used == amount)
 				if(affecting.is_bandaged())
-					to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
-				else
-					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
-			use(used)
-
-/obj/item/stack/medical/bruise_pack/primitive //Primitive bandages; some leaves put together and hopefully has water on them
-	name = "primititive leaf wraps"
-	desc = "By combining some leaves together in a intrinsic way, it can be used as a very primitive bandage. Pretty easy to use but just don't try to use it without proper training."
-	singular_name = "primitive leaf wrap"
-
-/obj/item/stack/medical/bruise_pack/primitive/attack(mob/living/carbon/M as mob, mob/user as mob) //Pretty snowflaky and special
-	if(..())
-		return 1
-
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
-		if(!(istype(user, /mob/living/carbon/human)))
-			return
-		var/mob/living/carbon/human/U = user
-		if(affecting.is_bandaged())
-			to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>")
-			return 1
-		else
-			user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
-					             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
-			var/used = 0
-			for (var/datum/wound/W in affecting.wounds)
-				if(W.bandaged)
-					continue
-				if(used == amount)
-					break
-				if(!do_mob(U, M, W.damage / 2.5 / (min(U.medical_skill / 5, 1)))) //Lot slower to bandage but skill makes it go faster compared to base game
-					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
-					break
-
-				if (W.current_stage <= W.max_bleeding_stage)
-					user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [M]'s [affecting.name].</span>", \
-					                              "<span class='notice'>You bandage \a [W.desc] on [M]'s [affecting.name].</span>" )
-					//H.add_side_effect("Itch")
-				user.visible_message("<span class='notice'>\The [user] wraps the [W.desc] on [affecting.name].</span>", \
-					      "<span class='notice'>The [user] wraps the [W.desc] on [affecting.name].</span>" )
-				W.bandage()
-				used++
-			affecting.update_damages()
-			if(used == amount)
-				if(affecting.is_bandaged(user.medical_skill))
 					to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
