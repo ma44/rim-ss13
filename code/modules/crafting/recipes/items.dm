@@ -26,3 +26,11 @@
 	result = list(/obj/item/weapon/light/tube	 = 1)
 	time = 30
 	base_chance = 100
+	
+/datum/crafting_recipe/primitivebandage
+	name = "Primitive Bandage"
+	parts = list(/obj/item/stack/grass = 5)
+	tools = list()
+	result = list(/obj/item/stack/medical/primitive = 1)
+	time = 50
+	base_chance = 100
