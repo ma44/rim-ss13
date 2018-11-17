@@ -7,7 +7,7 @@
 	for(var/zlevel in map_z)
 		var/datum/random_map/noise/exoplanet/M = new /datum/random_map/noise/exoplanet/snow(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
 		get_biostuff(M)
-		new /datum/random_map/noise/ore/poor(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
+		//new /datum/random_map/noise/ore/poor(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
 
 /obj/effect/overmap/sector/exoplanet/snow/generate_atmosphere()
 	..()
@@ -30,8 +30,10 @@
 	//fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
 	fauna_types = list(/mob/living/simple_animal/cow) //They just somehow appear there
 	plantcolors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
+	//seeds = list()
 
 /area/exoplanet/snow
+	name = "Outside"
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/snow/
 
