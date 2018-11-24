@@ -2533,6 +2533,7 @@
 #include "rimss13\dog.dm"
 #include "rimss13\fireplace.dm"
 #include "rimss13\items and stuff.dm"
+#include "rimss13\survivalboi.dm"
 #include "rimss13\fancymelee\anvil.dm"
 #include "rimss13\guncraft\base.dm"
 #include "rimss13\guncraft\gunmaker.dm"

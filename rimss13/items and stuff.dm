@@ -43,6 +43,8 @@
 	return
 
 /obj/item/primitivetool
+	icon = 'rimss13/tribalitems.dmi'
+	icon_state = "tool"
 	name = "primitive survival tool"
 	desc = "A extremely primitive tool that allows you to chop down trees and harvest some stone from ore deposits with it's semi sharp edge."
 	force = 5
@@ -66,8 +68,8 @@
 /obj/item/primitivetool/aftercraft(craftingskill)
 	durability = durability * (craftingskill / 20) //Up to a 5x durability bonus
 	//INCOMING SNOWFLAKE
-	var/mob/lviing/carbon/human/l = new/mob/living/carbon/human()
-	l.crafting_skill = craftingskill
-	var/skillnum = l.skillnumtodesc(l.crafting_skill)
-	qdel(l)
+	var/mob/living/carbon/human/h = new /mob/living/carbon/human(src)
+	h.crafting_skill = craftingskill
+	var/skillnum = h.skillnumtodesc(h.crafting_skill)
+	qdel(h)
 	desc += " This tool also seems to have been crafted by a [skillnum] crafter."

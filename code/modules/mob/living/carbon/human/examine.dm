@@ -289,7 +289,7 @@
 			if(wound.salved)
 				bandagestate = "salved."
 
-			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor]. "
+			wound_flavor_text["[E.name]"] += "The [bandagestate] [wound.desc] on [T.his] [E.name] seems to be [infectionflavor] "
 			if(bandagestate != "unbandaged") //See if the examiner could improve on the previous person's efforts
 				if(istype(user, /mob/living/carbon))
 					var/mob/living/carbon/typecastboi = user

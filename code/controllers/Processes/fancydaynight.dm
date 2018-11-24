@@ -3,7 +3,7 @@
 	var/turf/dayturf = /turf/simulated/floor/exoplanet/grass //Wanna make day time turn the world to lava? well here ya go then
 	var/turf/nightturf = /turf/simulated/floor/exoplanet/snow/
 	var/turf/currentturf //Turf for stuff to be made into
-	var/currentlum = 1 //Game starts off white and transition to night later on
+	var/currentlum = 255 //Game starts off white and transition to night later on
 	var/intx = 0
 
 /datum/controller/process/fancydaynight/setup()
@@ -22,23 +22,6 @@
 /datum/controller/process/fancydaynight/proc/daytonight()
 	sound_to(world, sound('rimss13/ash_storm_windup.ogg'))
 	to_world("<span class='warning'>The night begins to come, find a place not exposed to the elements and a nearby fire if you wish to not die.</span>")
-	while(currentlum != 1) //loop it a couple of times from darkness to complete day
-		intx = 0
-		while(intx != 255)
-			sleep(1)
-			for(var/turf/turf in block(locate(intx, 1, 1), locate(intx, world.maxy, 1)))
-				if(!turf)
-					continue
-				turf.adjustambientlight(currentlum)
-			intx += 1
-		currentlum = max(currentlum - 150, 1)
-	sound_to(world, sound('rimss13/ash_storm_start.ogg'))
-	to_world("<span class='warning'>The night has come, stay sheltered.</span>")
-
-
-/datum/controller/process/fancydaynight/proc/nighttoday()
-	sound_to(world, sound('rimss13/ash_storm_windup.ogg'))
-	to_world("<span class='warning'>The night is slowly going away but it is yet safe to go outside.</span>")
 	while(currentlum != 255) //loop it a couple of times from darkness to complete day
 		intx = 0
 		while(intx != 255)
@@ -48,7 +31,24 @@
 					continue
 				turf.adjustambientlight(currentlum)
 			intx += 1
-		currentlum = max(currentlum + 150, 255)
+		currentlum = max(currentlum + 50, 255)
+	sound_to(world, sound('rimss13/ash_storm_start.ogg'))
+	to_world("<span class='warning'>The night has come, stay sheltered.</span>")
+
+
+/datum/controller/process/fancydaynight/proc/nighttoday()
+	sound_to(world, sound('rimss13/ash_storm_windup.ogg'))
+	to_world("<span class='warning'>The night is slowly going away but it is yet safe to go outside.</span>")
+	while(currentlum != 1) //loop it a couple of times from darkness to complete day
+		intx = 0
+		while(intx != 255)
+			sleep(1)
+			for(var/turf/turf in block(locate(intx, 1, 1), locate(intx, world.maxy, 1)))
+				if(!turf)
+					continue
+				turf.adjustambientlight(currentlum)
+			intx += 1
+		currentlum = max(currentlum - 50, 1)
 	sound_to(world, sound('rimss13/ash_storm_end.ogg'))
 	to_world("<span class='warning'>The night has now ended, it's surely safe to go outside now.</span>")
 
