@@ -74,14 +74,14 @@
 				return 0
 		else	//Less chancce of parrying if recently parried, becomes much more dependent on the skill difference
 			if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))
-				user.visible_message("<span class='good'>\The [user] parries [attack_text] with \the [src]!</span>")
+				user.visible_message("<span class='good'>\The [user] skillfully parries [attack_text] with \the [src]!</span>")
 				if(parry_sounds)
 					playsound(user.loc, pick(parry_sounds), 50, 1)
 				user.adjustStaminaLoss(parrystaminaloss * parrypenalty) //Loose a bit more stamina due to multiple parries in a row
 				health -= (damage / 20)
 				return 1
 			else
-				user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+				user.visible_message("<span class='danger'>\The [user] attempts to skillfully parry [attack_text] with \the [src] but fails!</span>")
 				return 0
 
 /obj/item/weapon/material/sword/proc/resetparry(cooldown, mob/living/user)
@@ -91,7 +91,7 @@
 
 /obj/item/weapon/material/sword/rapier
 	name = "rapier"
-	desc = "A weapon that is perfect for dueling, can only thrust and is EXTREMELY bad at parrying multiple times in a short time."
+	desc = "A weapon that is perfect for dueling, can only thrust and is EXTREMELY bad at parrying multiple times in a short time. Other then that it excels in a long duel."
 	icon_state = "katana" //No questioning pls
 	item_state = "katana"
 	atk_mode = STAB
@@ -104,7 +104,6 @@
 	weapon_speed_delay = 25
 
 /obj/item/weapon/material/sword/rapier/attack_self(mob/user)
-	//..()
 	switch_intent(user,STAB) //Stabbin only
 
 /obj/item/weapon/material/sword/attack_self(mob/user)
@@ -149,21 +148,18 @@
 	item_state  = "spearglass"
 	name = "spear"
 	desc = "A long weapon that is extremely good for attacking people without shields in crowded places and throwing to disable. Just don't try to parry with it."
-	parryability = 10 //Hah no
+	parryability = 10 //Hah no, gonna need a shield
 	health = 25 //Also pretty weak in durability
 	force = 30 //Also nice damage
-	throwforce = 30 //easy disable probably
+	throwforce = 30 //yeet the spear
 
 /obj/item/weapon/material/sword/spear/attack_self(mob/user)
-	//..()
 	switch_intent(user,STAB) //Stabbin only 2.0
 
 /obj/item/weapon/material/sword/spear/throw_impact(atom/hit_atom)
 	var/mob/living/carbon/C = hit_atom
 	C.Weaken(3)
 	health -= 12.5 //no spamming this meme
-	
-
 
 /obj/item/weapon/material/sword/replica
 	edge = 0
