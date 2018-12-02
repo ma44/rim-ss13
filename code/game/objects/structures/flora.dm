@@ -6,13 +6,12 @@
 	pixel_x = -16
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
-	var/life = 5 //How many more strikes to hit it
-	var/leafboi = 10 //amount of leaves
+	var/life = 3 //How many more strikes to hit it
 
 /obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
 	if(W.sharp)
 		user.setClickCooldown(10)
-		if((life > 0) && do_after(user, 10, src))
+		if((life > 0) && do_after(user, 20, src))
 			user.visible_message("[user] hits the [src] with the [W]!", "You hit the [src] with the [W].")
 			life -= 1
 			var/number = rand(1, 7)
@@ -32,7 +31,7 @@
 				if(7)
 					playsound(src, 'sound/effects/wood_chop3.ogg',50, 1)
 		if(life <= 0)
-			user.visible_message("[user] cuts the [src] down!", "You cut down the [src], making the thing suddenly collaspe into some wooden planks.")
+			user.visible_message("[user] cuts the [src] down!", "You cut down the [src], making the thing suddenly collaspe into various useful materials.")
 			var/locationthing = get_turf(src)
 			var/obj/item/stack/material/wood/wood = new /obj/item/stack/material/wood(locationthing)
 			wood.amount = 3
