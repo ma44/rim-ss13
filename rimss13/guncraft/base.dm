@@ -43,14 +43,14 @@
 
 /obj/item/weapon/gun/projectile/attach/base
 	name = "base gun design"
-	desc = "Determines the firemode and type of shell ejection of the weapon."
+	desc = "Determines the type of shell ejection and type of weapon."
 	icon = 'rimss13/guncraft/main.dmi'
 	icon_state = "base_projectile_pistol"
 
 /obj/item/weapon/gun/projectile/attach/handle
 	var/calibertype = "9mm"
 	name = "base handle"
-	desc = "Determines the type of caliber the gun shoots. This one shoots a thing I guess."
+	desc = "Determines the type of caliber and fire modes the gun shoots. This one shoots a thing I guess."
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = /obj/item/ammo_magazine/mc9mm
 	var/magtype = 3
