@@ -78,10 +78,10 @@
 					resetparry(parrycooldown, user)
 					return 1
 				else
-					user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+					user.visible_message("<span class='danger'>\The [user] attempts to easily parry [attack_text] with \the [src] but fails!</span>")
 			else
 				if(default_parry_check(user, attacker, damage_source) && prob(((user.melee_skill) + parryability) - attacker.melee_skill) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
-					user.visible_message("<span class='good'>\The [user] parries [attack_text] with \the [src]!</span>")
+					user.visible_message("<span class='good'>\The [user] skillfully parries [attack_text] with \the [src]!</span>")
 					if(parry_sounds)
 						playsound(user.loc, pick(parry_sounds), 50, 1)
 					user.adjustStaminaLoss(parrystaminaloss)
@@ -90,7 +90,7 @@
 					resetparry(parrycooldown, user)
 					return 1
 				else
-					user.visible_message("<span class='danger'>\The [user] attempts to parry [attack_text] with \the [src] but fails!</span>")
+					user.visible_message("<span class='danger'>\The [user] attempts to skillfully parry [attack_text] with \the [src] but fails!</span>")
 					return 0
 
 		else
